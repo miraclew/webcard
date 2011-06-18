@@ -1,0 +1,39 @@
+﻿body 
+{	
+}
+
+#top_bar 
+{
+	border: solid 1px blue; 	
+	height: 30px;
+	width: auto;	
+}
+
+#game_view 
+{
+	border: solid 1px red; 	
+	height: auto;
+	width: 74%;	
+}
+
+#side_view 
+{
+	border: solid 1px green; 	
+	height: 100px;
+	width: 25%;
+	float: right;
+}
+
+#card_region 
+{
+	border: solid 1px gray;	
+	margin: 10% 10% 10% 10%;
+}
+
+#card_00 
+{
+	width: 80px;
+	height: 105px;	
+	background-image: url(../images/CARD.png);
+	background-position: top left 0 0
+}
