@@ -11,29 +11,147 @@
 
 #game_view 
 {
+	position: absolute;
 	border: solid 1px red; 	
-	height: auto;
 	width: 74%;	
 }
 
 #side_view 
 {
 	border: solid 1px green; 	
-	height: 100px;
 	width: 25%;
 	float: right;
 }
 
 #card_region 
 {
+	position: absolute;
 	border: solid 1px gray;	
-	margin: 10% 10% 10% 10%;
+	width: 75%;
+	height: 75%;
+	top: 10%;
+	left: 10%;
 }
 
-#card_00 
+.bak
+{
+	display: -moz-inline-stack;  /*Firefox only code */
+	display: inline-block;       /*some standard browsers */
+	zoom: 1;                     /*IE only */
+	*display: inline;            /*Only IE know this code (CSS Hack) */
+	
+	
+}
+
+.card
 {
 	width: 80px;
 	height: 105px;	
-	background-image: url(../images/CARD.png);
-	background-position: top left 0 0
+	background-image: url(../images/CARD.png);	
+	position: absolute;	
+}
+
+.card_up
+{
+	width: 80px;
+	height: 105px;	
+	background-image: url(../images/CARD.png);	
+	position: absolute;	
+	top: -20px;
+}
+
+#card_00 { background-position: 0px 0px; }
+#card_01 { background-position: 0px 0px; left: 20px; }
+
+
+.player
+{
+	border: solid 1px gray;
+	position: absolute;
+	width: 80px;
+	height: 80px;	
+}
+
+#p0
+{
+	left: 0;
+	top: 50%;
+}
+
+#p1
+{
+	left: 50%;
+	bottom: 0;
+}
+
+#p2
+{
+	right: 0;
+	top: 50%;
+}
+
+.hand_card
+{
+	border: solid 1px green;
+	position: absolute;
+}
+
+#p0_hand_card 
+{
+	width:80px;
+	height: 80%;
+	left: 0;
+	top: 10%;
+}
+
+#p1_hand_card 
+{
+	width:80%;
+	height: 110px;
+	left: 10%;
+	bottom: 0;
+}
+
+#p2_hand_card 
+{
+	width:80px;
+	height: 80%;
+	right: 0;
+	top: 10%;
+}
+
+.out_card
+{
+	border: solid 1px blue;
+	position: absolute;
+	width: 40%;
+	height: 105px;
+}
+
+#p0_out_card 
+{
+	left: 10%;
+	top: 20%;
+}
+
+#p1_out_card 
+{	
+	left: 30%;
+	bottom: 35%;
+}
+
+#p2_out_card 
+{
+	right: 10%;
+	top: 20%;
+}
+
+#play_button 
+{
+	border: solid 1px Purple;
+	position: absolute;
+	width: 40%;
+	height: 60px;
+	left: 30%;
+	bottom: 20%;
 }
