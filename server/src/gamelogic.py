@@ -20,8 +20,4 @@ class GameLogic:
         self.cards = shuffle(_copy)
         return self.cards
 
-    
-class Table:
-    def __init__(self):
-        pass
-    
+

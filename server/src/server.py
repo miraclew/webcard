@@ -17,17 +17,11 @@ class ChatConnection(tornadio.SocketConnection):
     participants = set()
 
     def on_open(self, *args, **kwargs):
-        self.participants.add(self)
-        self.send("Welcome!")
+        self.send("Welcome from the server.")
 
     def on_message(self, message):
-        for p in self.participants:
-            p.send(message)
-
-    def on_close(self):
-        self.participants.remove(self)
-        for p in self.participants:
-            p.send("A user has left.")
+        # Pong message back
+        self.send(message)
 
 #use the routes classmethod to build the correct resource
 ChatRouter = tornadio.get_router(ChatConnection)
@@ -35,10 +29,6 @@ ChatRouter = tornadio.get_router(ChatConnection)
 #configure the Tornado application
 application = tornado.web.Application(
     [(r"/", IndexHandler), ChatRouter.route()],
-    enabled_protocols = ['websocket',
-                         'flashsocket',
-                         'xhr-multipart',
-                         'xhr-polling'],
     flash_policy_port = 843,
     flash_policy_file = op.join(ROOT, 'flashpolicy.xml'),
     socket_io_port = 8001
