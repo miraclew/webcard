@@ -1,0 +1,11 @@
+在httpd.conf文件最后加入:
+
+
+<Directory "D:/Project/jxgame/web">
+    Options Indexes FollowSymLinks Includes ExecCGI
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+</Directory>
+
+Alias /webcard/ "D:/Project/jxgame/web/"

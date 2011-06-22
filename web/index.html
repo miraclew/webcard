@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Web Card 11</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/logic.js"></script>
+    <script src="js/ZmqSocket.js" type="text/javascript"></script>
+    
+    <script language="JavaScript">
+     var socket = new ZmqSocket ();
+     var ready = false;
+
+     socket.onopen = function () { ready = true; };
+     socket.onmessage = function () { if (socket.available ()) { var m = socket.recv (); alert (m); } else { alert ('Assertion failure!'); } };
+     socket.onclose = function () { alert ('close'); };
+     socket.onerror = function (msg) { alert (msg); };
+
+     socket.connect ("localhost", 5555);
+    </script>
+</head>
+<body>
+    <form id="form1" >
+    <div id="top_bar">
+    </div>
+    <div id="side_view"></div>    
+    <div id="game_view">        
+		<div id="p0" class="player">p0</div>
+		<div id="p1" class="player">p1</div>
+		<div id="p2" class="player">p2</div>
+        <div id="card_region">
+            <div id="p0_hand_card" class="hand_card">p0_hand_card
+            </div>			
+            <div id="p1_hand_card" class="hand_card" >
+            </div>			
+            <div id="p2_hand_card" class="hand_card">p2_hand_card
+            </div>			
+            <div id="p0_out_card" class="out_card">p0_out_card
+            </div>			
+            <div id="p1_out_card" class="out_card">p1_out_card                
+            </div>			
+            <div id="p2_out_card" class="out_card">p2_out_card
+            </div>			
+            <div id="play_button" class="play_button">
+                <button id="card_out" class="cupid-green">出牌</button> 
+                <button id="card_pass" class="cupid-green">不出</button> 
+                <button id="card_tip" class="cupid-green">提示</button> 
+            </div>	
+        </div>
+    </div>    
+    </form>
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+     id="ZmqSocketFlash" width="0" height="0"
+     codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+     <param name="movie" value="js/ZmqSocketMain.swf" />
+     <param name="allowScriptAccess" value="sameDomain" />
+     <embed src="js/ZmqSocketMain.swf" quality="high" 
+      width="0" height="0" name="ZmqSocketFlash" align="middle"
+      play="true" loop="false" allowScriptAccess="sameDomain"
+      type="application/x-shockwave-flash"
+      pluginspage="http://www.macromedia.com/go/getflashplayer">
+     </embed>
+    </object>
+</body>
+</html>
